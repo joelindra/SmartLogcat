@@ -1,10 +1,38 @@
-<div align="center">
-  <img src="./public/copyright_banner.png" alt="SmartLogcat Copyright Banner" width="100%">
-</div>
-
 # 🌌 SmartLogcat: Next-Gen Android Logcat Streamer & Profiler
 
-SmartLogcat is an industrial-grade desktop utility engineered using **Electron**, **React**, **TypeScript**, and **SQLite**. It is purpose-built for mobile developers, QA engineers, and security researchers to stream Android system logs in real-time, profile device performance metrics, isolate targeted packages, and automate smart event alerts using a premium, cyberpunk-themed **Deep Space** neon user interface.
+<div align="center">
+<img width="1710" height="1049" alt="image" src="https://github.com/user-attachments/assets/994e0f12-4204-4900-83b2-81ed7474601c" />
+  
+  <br>
+
+  [![Electron Version](https://img.shields.io/badge/Electron-30.0.0-blueviolet.svg?style=for-the-badge&logo=electron)](https://electronjs.org)
+  [![React Version](https://img.shields.io/badge/React-19.2-blue.svg?style=for-the-badge&logo=react)](https://react.dev)
+  [![TypeScript](https://img.shields.io/badge/TypeScript-6.0-blue.svg?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+  [![Database](https://img.shields.io/badge/SQLite-Better--SQLite3-00579c.svg?style=for-the-badge&logo=sqlite)](https://github.com/WiseLibs/better-sqlite3)
+  [![OS Support](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-brightgreen.svg?style=for-the-badge)](https://github.com/joelindracr/SmartLogcat)
+</div>
+
+---
+
+**SmartLogcat** is an industrial-grade desktop utility engineered using **Electron**, **React**, **TypeScript**, and **SQLite**. It is purpose-built for mobile developers, QA engineers, and security researchers to stream Android system logs in real-time, profile device performance metrics, isolate targeted packages, and automate smart event alerts using a premium, cyberpunk-themed **Deep Space** neon user interface.
+
+---
+
+## 🎨 The Logo Concept: Cyber-Code Cat
+
+SmartLogcat features a premium, minimalist cyberpunk design philosophy. The logo integrates the two core elements of the project's identity—**Cats** and **Code Logs**:
+*   **The Cybermatic Face Outline:** Sleek, symmetrical geometric lines drawn in glowing **Neon Purple** (representing abyssal outer space) and **Neon Cyan** (representing high-fidelity digital channels).
+*   **Code-Bracket Eyes (`<` and `>`):** In a clever easter egg, the cat's eyes are formed from **emerald green code tags**—blending software development directly with the feline aesthetic.
+*   **Log Line Whiskers:** Symmetrical horizontal line dashes that represent stream lines in active terminal outputs.
+
+---
+
+## 🚀 Download Pre-compiled Desktop App
+
+No need to clone code or run build scripts! You can download the production installer directly:
+1. Navigate to the [Releases](https://github.com/joelindracr/SmartLogcat/releases) tab on the right side of this repository.
+2. Download the latest `Smart Logcat Viewer Setup 1.0.0.exe` for Windows.
+3. Install the application with a single click and launch it directly from your desktop.
 
 ---
 
@@ -19,7 +47,7 @@ Here is how SmartLogcat compares to standard Android Studio logcat and classic c
 | **Device Control Cockpit** | **Yes** (GUI controls for Launch, Force-stop, Clear Data, and Mock Battery) | Partial (no Mock Battery controls) | None (requires typing long shell commands manually) |
 | **Interactive Scrubber Timeline** | **Yes** (Click-and-drag SVG density brush selector to isolate millisecond windows) | None | None |
 | **Integrated Performance Profiler** | **Yes** (Real-time CPU sparkline & memory breakdowns for PSS, Native, and Dalvik) | Separate (requires opening full resource profiler tab) | None |
-| **Persistent Session Storage** | **Yes** (Integrated local relessional SQLite database) | None | None (requires manual shell redirects to txt files) |
+| **Persistent Session Storage** | **Yes** (Integrated local relational SQLite database) | None | None (requires manual shell redirects to txt files) |
 | **Desktop Fatal Crash Alert** | **Yes** (Instant OS-level push notifications for `Fatal` level occurrences) | None | None |
 
 ---
@@ -27,7 +55,7 @@ Here is how SmartLogcat compares to standard Android Studio logcat and classic c
 ## ⚡ 9 Core Feature Pillars & Technical Architecture
 
 ### 1. Real-Time Streaming & IPC Batching Optimization
-When an Android device streams logs in high-volume environments (e.g., during rapid background loops or recursive errors), Electron's Inter-Process Communication (IPC) channel can become saturated, freezing the main renderer thread.
+When an Android device streams logs in high-volume environments, Electron's Inter-Process Communication (IPC) channel can become saturated, freezing the main renderer thread.
 *   **The Technical Solution:** SmartLogcat implements a high-performance **Buffer & Batching** engine. Raw log entries piped from the ADB stream are accumulated in memory per device in the Main process. The main process flushes the buffer to the Renderer process collectively once the queue reaches **120 entries** or every **40 milliseconds**. This lowers CPU overhead by up to 80% under high log volume stresses.
 
 ### 2. Device Control Cockpit
@@ -39,11 +67,15 @@ A centralized interface designed to command the physical or virtual Android devi
 *   **Force Stop & Clear Data:** Forcefully kills active processes and wipes all package cache and data:
     ```bash
     adb -s <deviceId> shell am force-stop <packageName>
+    ```
+    ```bash
     adb -s <deviceId> shell pm clear <packageName>
     ```
 *   **Mock Battery Level:** Tests application behavior under low-power states by faking battery levels:
     ```bash
     adb -s <deviceId> shell dumpsys battery set level <0-100>
+    ```
+    ```bash
     adb -s <deviceId> shell dumpsys battery set status 2
     ```
 
@@ -119,7 +151,7 @@ graph TD
 
 ## 🗃️ SQLite Database Schema
 
-Sesi debugging are stored locally in the `sessions.db` file within the application's userData directory.
+Debugging sessions are stored locally in the `sessions.db` file within the application's native `userData` folder.
 
 ### Table: `sessions`
 This table records session metadata along with the serialized log payload saved as a JSON string.
@@ -135,27 +167,33 @@ This table records session metadata along with the serialized log payload saved 
 
 ---
 
-## 🔧 Installation & Environment Setup
+## 🔧 Local Development & Build Setup
 
 ### Prerequisites
 1.  **Node.js** (Version 18+ recommended).
-2.  **ADB (Android Debug Bridge)** added to your environment `PATH`.
+2.  **ADB (Android Debug Bridge)** added to your system's environment variables (`PATH`).
     > [!TIP]
     > If ADB is missing from your system `PATH`, SmartLogcat has a platform-tools recovery routine that checks for a local copy within the application's internal data directory.
 
 ### Setup Instructions
-1.  Navigate to your local SmartLogcat repository directory:
+1.  Clone this repository and navigate to the directory:
     ```bash
-    cd e:\HACKING\SmartLogcat
+    git clone https://github.com/joelindracr/SmartLogcat.git
+    cd SmartLogcat
     ```
 2.  Install all package dependencies:
     ```bash
     npm install
     ```
-3.  Launch the app in developer mode:
+3.  Launch the app in local developer mode:
     ```bash
     npm run dev
     ```
+4.  Compile and Package the Desktop App Installer (`.exe` / `.dmg` / `.deb`):
+    ```bash
+    npm run pack
+    ```
+    The compiled production setup installer will be output directly to the `./dist` folder.
 
 ---
 
@@ -167,7 +205,7 @@ SmartLogcat is built using a dark glassmorphic outside-space visual identity, in
 *   **Panel Background:** `#0f172a / 50% opacity` (Glassmorphic Slate with background blur)
 *   **Glow Neon Highlight Triggers:**
     *   🔴 **Neon Rose:** `#f43f5e` (Fatal Crashes / Critical Errors)
-    *   🟣 **Neon Purple:** `#a855f7` (Network API Traffic/OkHttp logs)
+    *   🟣 **Neon Purple:** `#a855f7` (Network API Traffic / OkHttp logs)
     *   🔵 **Neon Blue:** `#3b82f6` (General Debug logs)
     *   🟢 **Neon Emerald:** `#10b981` (Information / Success events)
     *   🟡 **Neon Gold:** `#eab308` (Warnings)
