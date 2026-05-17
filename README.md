@@ -9,7 +9,7 @@
   [![React Version](https://img.shields.io/badge/React-19.2-blue.svg?style=for-the-badge&logo=react)](https://react.dev)
   [![TypeScript](https://img.shields.io/badge/TypeScript-6.0-blue.svg?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
   [![Database](https://img.shields.io/badge/SQLite-Better--SQLite3-00579c.svg?style=for-the-badge&logo=sqlite)](https://github.com/WiseLibs/better-sqlite3)
-  [![OS Support](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-brightgreen.svg?style=for-the-badge)](https://github.com/joelindracr/SmartLogcat)
+  [![OS Support](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-brightgreen.svg?style=for-the-badge)](https://github.com/joelindra/SmartLogcat)
 </div>
 
 ---
@@ -27,12 +27,19 @@ SmartLogcat features a premium, minimalist cyberpunk design philosophy. The logo
 
 ---
 
-## 🚀 Download Pre-compiled Desktop App
+## 📦 Download Desktop App (Production Ready)
 
-No need to clone code or run build scripts! You can download the production installer directly:
-1. Navigate to the [Releases](https://github.com/joelindracr/SmartLogcat/releases) tab on the right side of this repository.
-2. Download the latest `Smart Logcat Viewer Setup 1.0.0.exe` for Windows.
-3. Install the application with a single click and launch it directly from your desktop.
+> [!IMPORTANT]
+> **You do not need to clone the code or install Node.js locally!** We provide pre-compiled, signed, and fully optimized desktop installers ready to launch with a single click.
+
+### Direct Download:
+*   💻 **[Download for Windows (.exe installer)](https://github.com/joelindra/SmartLogcat/releases/latest)** — *Automated setup installer (~174 MB).*
+
+### Setup Instructions:
+1. Navigate to the **[Releases Tab](https://github.com/joelindra/SmartLogcat/releases)** on the right sidebar of this repository.
+2. Select the latest release version tag (e.g., `v1.0.0`).
+3. Under the **Assets** section, download the installer compatible with your operating system.
+4. Run the installer and start streaming Android logs instantly!
 
 ---
 
@@ -178,7 +185,7 @@ This table records session metadata along with the serialized log payload saved 
 ### Setup Instructions
 1.  Clone this repository and navigate to the directory:
     ```bash
-    git clone https://github.com/joelindracr/SmartLogcat.git
+    git clone https://github.com/joelindra/SmartLogcat.git
     cd SmartLogcat
     ```
 2.  Install all package dependencies:
