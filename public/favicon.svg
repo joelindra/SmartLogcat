@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#050508" />
+    </radialGradient>
+    
+    <!-- Neon Cyan Glow -->
+    <filter id="neonCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <!-- Neon Purple Glow -->
+    <filter id="neonPurple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Neon Emerald Glow -->
+    <filter id="neonEmerald" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" stroke="#1e293b" stroke-width="6"/>
+
+  <!-- Subtle Radial Glow behind the logo -->
+  <circle cx="256" cy="256" r="160" fill="#a855f7" opacity="0.15" filter="blur(40px)"/>
+
+  <!-- Logo Group -->
+  <g transform="translate(0, 10)">
+    <!-- Cat Ears & Head Outline (Minimalist Purple Neon) -->
+    <path d="M 140,160 
+             L 180,280 
+             L 332,280 
+             L 372,160 
+             L 310,210 
+             L 256,190 
+             L 202,210 
+             Z" 
+          fill="none" 
+          stroke="#a855f7" 
+          stroke-width="12" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          filter="url(#neonPurple)" />
+
+    <!-- Sleek Face Outer Jaw (Cyan Neon) -->
+    <path d="M 130,280 
+             C 130,360 190,410 256,410 
+             C 322,410 382,360 382,280" 
+          fill="none" 
+          stroke="#06b6d4" 
+          stroke-width="12" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          filter="url(#neonCyan)" />
+
+    <!-- Cyber Code Eyes (Emerald Green Neon) -->
+    <!-- Left Eye: "<" Bracket -->
+    <path d="M 215,265 L 185,285 L 215,305" 
+          fill="none" 
+          stroke="#10b981" 
+          stroke-width="14" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          filter="url(#neonEmerald)" />
+          
+    <!-- Right Eye: ">" Bracket -->
+    <path d="M 297,265 L 327,285 L 297,305" 
+          fill="none" 
+          stroke="#10b981" 
+          stroke-width="14" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          filter="url(#neonEmerald)" />
+
+    <!-- Cute Minimalist Nose & Whiskers (Log Lines) -->
+    <!-- Nose (Tiny V shape) -->
+    <path d="M 248,310 L 256,316 L 264,310" 
+          fill="none" 
+          stroke="#06b6d4" 
+          stroke-width="8" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          filter="url(#neonCyan)" />
+          
+    <!-- Cyber Whiskers / Horizontal Log Lines -->
+    <!-- Left Whisker Top -->
+    <line x1="160" y1="330" x2="110" y2="330" stroke="#a855f7" stroke-width="8" stroke-linecap="round" filter="url(#neonPurple)" />
+    <!-- Left Whisker Bottom -->
+    <line x1="170" y1="355" x2="130" y2="360" stroke="#06b6d4" stroke-width="8" stroke-linecap="round" filter="url(#neonCyan)" />
+    
+    <!-- Right Whisker Top -->
+    <line x1="352" y1="330" x2="402" y2="330" stroke="#a855f7" stroke-width="8" stroke-linecap="round" filter="url(#neonPurple)" />
+    <!-- Right Whisker Bottom -->
+    <line x1="342" y1="355" x2="382" y2="360" stroke="#06b6d4" stroke-width="8" stroke-linecap="round" filter="url(#neonCyan)" />
+
+    <!-- Terminal Prompt/Log Stream Symbol (Between jaw at bottom) -->
+    <line x1="220" y1="355" x2="292" y2="355" stroke="#10b981" stroke-width="10" stroke-linecap="round" filter="url(#neonEmerald)" />
+    <line x1="235" y1="375" x2="277" y2="375" stroke="#a855f7" stroke-width="10" stroke-linecap="round" filter="url(#neonPurple)" />
+  </g>
+</svg>
