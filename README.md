@@ -247,15 +247,3 @@ SmartLogcat is built using a dark glassmorphic outside-space visual identity, in
 7.  SmartLogcat immediately triggers an OS-level push notification, synthesizes an alert chime, and highlights the exact crash log row in glowing Neon Rose.
 8.  Click the highlighted log row to read the full formatted *Stack Trace* and check recommendation insights on the right-hand panel.
 9.  Click **Save Session** to store the logs securely in SQLite so your teammates can review it later.
-
----
-
-## 📄 License & Copyright
-
-Designed and developed with passion by **Joel Indra CR**.
-
-<div align="center">
-  <img src="./public/copyright_banner.png" alt="Joel Indra CR Branding Banner" width="80%">
-  <br>
-  <sub>Copyright © 2026 Joel Indra CR. All rights reserved.</sub>
-</div>
